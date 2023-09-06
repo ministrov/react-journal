@@ -1,13 +1,16 @@
 import './JournalItem.css';
 
-function JournalItem({ data }) {
+function JournalItem({ title, text, date }) {
+  const formatedDate = new Intl.DateTimeFormat('ru-Ru').format(date);
+
+  console.log(typeof formatedDate);
 
   return (
     <div className='journal-item'>
-      <h2 className='journal-item__header'>{data[0].title}</h2>
+      <h2 className='journal-item__header'>{title}</h2>
       <div className='journal-item__body'>
-        <div className='journal-item__date'>{data[0].date.toString()}</div>
-        <div className='journal-item__text'>{data[0].text}</div>
+        <div className='journal-item__date'>{formatedDate}</div>
+        <div className='journal-item__text'>{text}</div>
       </div>
     </div>
   );
