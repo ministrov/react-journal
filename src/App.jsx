@@ -26,7 +26,7 @@ function App() {
 
       <Button/>
 
-      <JournalItem
+      {/* <JournalItem
         title={data[0].title}
         text={data[0].text}
         date={data[0].date}
@@ -40,7 +40,9 @@ function App() {
         title={data[2].title}
         text={data[2].text}
         date={data[2].date}
-      />
+      /> */}
+
+      <JournalItem data={data}/>
     </div>
   );
 }
