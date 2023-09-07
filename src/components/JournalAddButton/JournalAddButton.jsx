@@ -1,8 +1,11 @@
+import CardButton from '../CardButton/CardButton';
 import './JournalAddButton.css';
 
 function JournalAddButton() {
   return (
-    <button>add</button>
+    <CardButton>
+      + Новое воспоминание
+    </CardButton>
   );
 }
 

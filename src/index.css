@@ -14,3 +14,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media screen and (max-width: 1348px) {
+  body {
+    margin: 0;
+  }
+}

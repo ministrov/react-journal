@@ -2,9 +2,9 @@ import './JournalList.css';
 
 function JournalList({ children }) {
   return (
-    <ul>
+    <div className="journal-list">
       {children}
-    </ul>
+    </div>
   );
 }
 

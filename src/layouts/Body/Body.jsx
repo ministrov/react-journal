@@ -1,8 +1,10 @@
 import './Body.css';
 
-function Body() {
+function Body({ children }) {
   return (
-    <main>content</main>
+    <div className="body">
+      {children}
+    </div>
   );
 }
 

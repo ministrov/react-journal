@@ -1,8 +1,10 @@
-import '';
+import './Header.css';
 
 function Header() {
   return (
-    <header>header</header>
+    <header>
+      logo
+    </header>
   );
 }
 
