@@ -7,6 +7,7 @@ import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import './App.css';
+import JournalForm from './components/JournalForm/JournalForm';
 
 function App() {
   const data = [
@@ -60,7 +61,7 @@ function App() {
       </LeftPanel>
 
       <Body>
-        Поход в годы
+        <JournalForm/>
       </Body>
     </div>
   );

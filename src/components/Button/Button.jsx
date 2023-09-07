@@ -1,18 +1,9 @@
-import { useState } from 'react';
 import './Button.css';
 
-function Button() {
-  const [text, setText] = useState('Сохранить');
-
-  console.log(typeof text);
-
-  const handleClick = () => {
-    setText('Зактрыть');
-    console.log('Button is clicked');
-  };
+function Button({ text, onClick }) {
 
   return (
-    <button onClick={handleClick} className="button accent">{text}</button>
+    <button className="button accent" onClick={onClick}>{text}</button>
   );
 }
 
