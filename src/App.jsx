@@ -28,6 +28,10 @@ function App() {
       <Button/>
 
       <CardButton>
+       + Новое воспоминание
+      </CardButton>
+
+      <CardButton>
         <JournalItem
           title={data[0].title}
           text={data[0].text}
