@@ -48,6 +48,14 @@ function App() {
               date={data[1].date}
             />
           </CardButton>
+
+          <CardButton>
+            <JournalItem
+              title={data[2].title}
+              text={data[2].text}
+              date={data[2].date}
+            />
+          </CardButton>
         </JournalList>
       </LeftPanel>
 
