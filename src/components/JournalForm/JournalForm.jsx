@@ -1,38 +1,85 @@
 import { useState } from 'react';
-import './JournalForm.css';
+import classNames from 'classnames';
 import Button from '../Button/Button';
+import styles from './JournalForm.module.css';
 
-function JournalForm() {
-  const [inputData, setInputData] = useState('');
-  const [state, setState] = useState({
-    age: 31
+function JournalForm({ onSubmit }) {
+  const [formValidState, setFormValidState] = useState({
+    title: true,
+    text: true,
+    date: true
   });
-
-  const handleInput = (event) => {
-    setInputData(event.target.value);
-    console.log(inputData);
-  };
 
   const addJournalItem = (event) => {
     event.preventDefault();
 
-    state.age = 40;
-
-    setState({ ...state });
-
     const formData = new FormData(event.target);
     const formProps = Object.fromEntries(formData);
+    let isFormValid = true;
+
+    // Form data validation
+
+    if (!formProps.title?.trim().length) {
+      setFormValidState(state => ({ ...state, title: false}));
+      // eslint-disable-next-line no-unused-vars
+      isFormValid = false;
+    } else {
+      setFormValidState(state => ({ ...state, title: true }));
+    }
+
+    if (!formProps.text?.trim().length) {
+      setFormValidState(state => ({ ...state, text: false }));
+      // eslint-disable-next-line no-unused-vars
+      isFormValid = false;
+    } else {
+      setFormValidState(state => ({ ...state, text: true }));
+    }
+
+    if (!formProps.date) {
+      setFormValidState(state => ({ ...state, date: false }));
+      // eslint-disable-next-line no-unused-vars
+      isFormValid = false;
+    } else {
+      setFormValidState(state => ({ ...state, date: true }));
+    }
+
+    if (!isFormValid) {
+      return;
+    }
+
+    onSubmit(formProps);
     console.log(formProps);
   };
 
   return (
-    <form className="journal-form" onSubmit={addJournalItem}>
-      {state.age}
-      <input type="text" name="title"/>
-      <input type="date" name="date"/>
-      <input type="text" name="tag" value={inputData} onChange={handleInput} />
-      <textarea name="post" id="" cols="30" rows="10"></textarea>
-      <Button text="Сохранить" onClick={() => { console.log('Clicked'); }}/>
+    <form className={styles['journal-form']} onSubmit={addJournalItem}>
+      <div>
+        <input type="text" name="title" className={classNames(styles['input-title'], {
+          [styles['invalid']]: !formValidState.title
+        })} />
+      </div>
+      <div className={styles['form-row']}>
+        <label htmlFor="date" className={styles['form-label']}>
+          <img src="/calendar.svg" alt="Иконка календаря" />
+          <span>Дата</span>
+        </label>
+        <input type="date" name="date" id="date" className={classNames(styles['input'], {
+          [styles['invalid']]: !formValidState.date
+        })} />
+      </div>
+
+      <div className={styles['form-row']}>
+        <label htmlFor="tag" className={styles['form-label']}>
+          <img src="/folder.svg" alt="Иконка папки" />
+          <span>Метки</span>
+        </label>
+        <input type="text" className={styles['input']} name="tag" id="tag"/>
+      </div>
+
+      <textarea name="text" id="" cols="30" rows="10" className={classNames(styles['input'], {
+        [styles['invalid']]: !formValidState.text
+      })}></textarea>
+      <Button text="Сохранить" />
     </form>
   );
 }
