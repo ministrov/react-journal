@@ -13,11 +13,18 @@ function JournalForm({ onSubmit }) {
   const [formValidState, setFormValidState] = useState(INITIAL_STATE);
 
   useEffect(() => {
+    let timerId;
+    // This code help to clear inputs from red background in 2 seconds after submiting
     if (!formValidState.title || !formValidState.text || !formValidState.date) {
-      setTimeout(() => {
+      timerId = setTimeout(() => {
+        console.log('Clearing stata');
         setFormValidState(INITIAL_STATE);
       }, 2000);
     }
+
+    return () => {
+      clearTimeout(timerId);
+    };
   }, [formValidState]);
 
   const addJournalItem = (event) => {
