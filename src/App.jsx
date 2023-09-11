@@ -7,31 +7,35 @@ import JournalList from './components/JournalList/JournalList';
 import './App.css';
 import JournalForm from './components/JournalForm/JournalForm';
 // import Button from './components/Button/Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const INITIAL_DATA = [
-  // {
-  //   id: 1,
-  //   title: 'Подготовка к обновлению курсов',
-  //   text: 'Горные походы открывают удивительные природные ландшафты',
-  //   date: new Date()
-  // },
-  // {
-  //   id: 2,
-  //   title: 'Поход в годы',
-  //   text: 'Думал, что очень много времени',
-  //   date: new Date()
-  // },
-  // {
-  //   id: 3,
-  //   title: 'Первая заметка',
-  //   text: 'Создал первую заметку, чтобы',
-  //   date: new Date()
-  // }
+  {
+    id: 1,
+    title: 'Подготовка к обновлению курсов',
+    text: 'Горные походы открывают удивительные природные ландшафты',
+    date: new Date()
+  },
+  {
+    id: 2,
+    title: 'Поход в годы',
+    text: 'Думал, что очень много времени',
+    date: new Date()
+  },
+  {
+    id: 3,
+    title: 'Первая заметка',
+    text: 'Создал первую заметку, чтобы',
+    date: new Date()
+  }
 ];
 
 function App() {
   const [items, setItems] = useState(INITIAL_DATA);
+
+  useEffect(() => {
+    console.log(items);
+  }, [items]);
 
   const addItem = item => {
     setItems(oldItems => [...oldItems, {
