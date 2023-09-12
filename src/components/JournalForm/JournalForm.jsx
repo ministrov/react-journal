@@ -24,20 +24,25 @@ function JournalForm({ onSubmit }) {
 
   useEffect(() => {
     if (isFormReadyToSubmit) {
-
       onSubmit(values);
+      dispatchForm({ type: 'CLEAR'});
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFormReadyToSubmit]);
+
+  const onChange = (event) => {
+    dispatchForm({ type: 'SET_VALUE', payload: { [event.target.name]: event.target.value}});
+  };
 
   const addJournalItem = (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const formProps = Object.fromEntries(formData);
+    // const formData = new FormData(event.target);
+    // const formProps = Object.fromEntries(formData);
 
     // Form data validation
     // let isFormValid = true;
-    dispatchForm({ type: 'SUBMIT', payload: formProps });
+    dispatchForm({ type: 'SUBMIT' });
     // if (!formProps.title?.trim().length) {
     //   setFormValidState(state => ({ ...state, title: false}));
     //   // eslint-disable-next-line no-unused-vars
@@ -70,7 +75,7 @@ function JournalForm({ onSubmit }) {
   return (
     <form className={styles['journal-form']} onSubmit={addJournalItem}>
       <div>
-        <input type="text" name="title" className={classNames(styles['input-title'], {
+        <input type="text" onChange={onChange} value={values.title} name="title" className={classNames(styles['input-title'], {
           [styles['invalid']]: !isValid.title
         })} />
       </div>
@@ -79,7 +84,7 @@ function JournalForm({ onSubmit }) {
           <img src="/calendar.svg" alt="Иконка календаря" />
           <span>Дата</span>
         </label>
-        <input type="date" name="date" id="date" className={classNames(styles['input'], {
+        <input type="date" onChange={onChange} value={values.date} name="date" id="date" className={classNames(styles['input'], {
           [styles['invalid']]: !isValid.date
         })} />
       </div>
@@ -89,10 +94,10 @@ function JournalForm({ onSubmit }) {
           <img src="/folder.svg" alt="Иконка папки" />
           <span>Метки</span>
         </label>
-        <input type="text" className={styles['input']} name="tag" id="tag"/>
+        <input type="text" onChange={onChange} value={values.tag} className={styles['input']} name="tag" id="tag"/>
       </div>
 
-      <textarea name="post" id="" cols="30" rows="10" className={classNames(styles['input'], {
+      <textarea name="post" onChange={onChange} value={values.post} id="" cols="30" rows="10" className={classNames(styles['input'], {
         [styles['invalid']]: !isValid.post
       })}></textarea>
       <Button text="Сохранить" />
