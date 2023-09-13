@@ -1,13 +1,11 @@
+import { useState } from 'react';
 import Body from './layouts/Body/Body';
-// import Button from './components/Button/Button';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
-import './App.css';
 import JournalForm from './components/JournalForm/JournalForm';
-// import Button from './components/Button/Button';
-import { useState, useEffect } from 'react';
+import './App.css';
 
 const INITIAL_DATA = [
   {
@@ -33,20 +31,18 @@ const INITIAL_DATA = [
 function App() {
   const [items, setItems] = useState(INITIAL_DATA);
 
-  useEffect(() => {
-    console.log(items);
-  }, [items]);
+  // useEffect(() => {
+  //   console.log(items);
+  // }, [items]);
 
   const addItem = item => {
     setItems(oldItems => [...oldItems, {
-      text: item.text,
+      post: item.post,
       title: item.title,
       date: new Date(item.date),
       id: oldItems.length > 0 ? Math.max(...oldItems.map(i => i.id)) + 1 : 1
     }]);
   };
-
-  // console.log(addItem(items));
 
   return (
     <div className="app">
