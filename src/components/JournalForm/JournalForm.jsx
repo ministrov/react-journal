@@ -27,8 +27,8 @@ function JournalForm({ onSubmit }) {
       onSubmit(values);
       dispatchForm({ type: 'CLEAR'});
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isFormReadyToSubmit]);
+
+  }, [isFormReadyToSubmit, values, onSubmit]);
 
   const onChange = (event) => {
     dispatchForm({ type: 'SET_VALUE', payload: { [event.target.name]: event.target.value}});
