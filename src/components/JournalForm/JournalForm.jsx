@@ -26,8 +26,6 @@ function JournalForm({ onSubmit }) {
     }
   };
 
-  console.log(titleRef);
-
   useEffect(() => {
     let timerId;
     // This code helps to clear inputs from red background in 2 seconds after submiting
@@ -96,14 +94,14 @@ function JournalForm({ onSubmit }) {
   return (
     <form className={styles['journal-form']} onSubmit={addJournalItem}>
       <div>
-        <Input type="text" ref={titleRef} isValid={!isValid.title} onChange={onChange} value={values.title} name="title" appearence="title" />
+        <Input type="text" ref={titleRef} isValid={isValid.title} onChange={onChange} value={values.title} name="title" appearence="title" />
       </div>
       <div className={styles['form-row']}>
         <label htmlFor="date" className={styles['form-label']}>
           <img src="/calendar.svg" alt="Иконка календаря" />
           <span>Дата</span>
         </label>
-        <Input type="date" ref={dateRef} isValid={!isValid.date} onChange={onChange} value={values.date} name="date" id="date"/>
+        <Input type="date" ref={dateRef} isValid={isValid.date} onChange={onChange} value={values.date} name="date" id="date"/>
       </div>
 
       <div className={styles['form-row']}>
