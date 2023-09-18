@@ -6,6 +6,7 @@ import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
 import './App.css';
+import { UserContext } from './context/user.context';
 
 // const INITIAL_DATA = [
 //   {
@@ -52,17 +53,19 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <LeftPanel>
-        <Header/>
-        <JournalAddButton />
-        <JournalList items={mapItems(items)}/>
-      </LeftPanel>
+    <UserContext.Provider value={{ userId: 1 }}>
+      <div className="app">
+        <LeftPanel>
+          <Header />
+          <JournalAddButton />
+          <JournalList items={mapItems(items)} />
+        </LeftPanel>
 
-      <Body>
-        <JournalForm onSubmit={addItem}/>
-      </Body>
-    </div>
+        <Body>
+          <JournalForm onSubmit={addItem} />
+        </Body>
+      </div>
+    </UserContext.Provider>
   );
 }
 
