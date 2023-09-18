@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
 import Body from './layouts/Body/Body';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
@@ -6,6 +7,7 @@ import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
 import './App.css';
+import { UserContext } from './context/user.context';
 
 // const INITIAL_DATA = [
 //   {
@@ -41,6 +43,7 @@ function mapItems(items) {
 
 function App() {
   const [items, setItems] = useLocalStorage('data');
+  const [userId, setUserId] = useState(2);
 
   const addItem = item => {
     setItems([...mapItems(items), {
@@ -52,17 +55,19 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <LeftPanel>
-        <Header/>
-        <JournalAddButton />
-        <JournalList items={mapItems(items)}/>
-      </LeftPanel>
+    <UserContext.Provider value={{ userId, setUserId }}>
+      <div className="app">
+        <LeftPanel>
+          <Header />
+          <JournalAddButton />
+          <JournalList items={mapItems(items)} />
+        </LeftPanel>
 
-      <Body>
-        <JournalForm onSubmit={addItem}/>
-      </Body>
-    </div>
+        <Body>
+          <JournalForm onSubmit={addItem} />
+        </Body>
+      </div>
+    </UserContext.Provider>
   );
 }
 

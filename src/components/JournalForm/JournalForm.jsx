@@ -1,9 +1,10 @@
-import { useEffect, useReducer, useRef } from 'react';
+import { useContext, useEffect, useReducer, useRef } from 'react';
 import classNames from 'classnames';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import styles from './JournalForm.module.css';
 import { INITIAL_STATE, formReducer } from './JournalForm.state';
+import { UserContext } from '../../context/user.context';
 
 function JournalForm({ onSubmit }) {
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
@@ -11,6 +12,7 @@ function JournalForm({ onSubmit }) {
   const titleRef = useRef();
   const dateRef = useRef();
   const postRef = useRef();
+  const { userId } = useContext(UserContext);
 
   const focusError = (isValid) => {
     switch(true) {
@@ -93,6 +95,7 @@ function JournalForm({ onSubmit }) {
 
   return (
     <form className={styles['journal-form']} onSubmit={addJournalItem}>
+      {userId}
       <div>
         <Input type="text" ref={titleRef} isValid={isValid.title} onChange={onChange} value={values.title} name="title" appearence="title" />
       </div>
@@ -101,7 +104,7 @@ function JournalForm({ onSubmit }) {
           <img src="/calendar.svg" alt="Иконка календаря" />
           <span>Дата</span>
         </label>
-        <Input type="date" ref={dateRef} isValid={isValid.date} onChange={onChange} value={values.date} name="date" id="date"/>
+        <Input type="date" ref={dateRef} isValid={isValid.date} onChange={onChange} value={values.date} name="date" id="date" />
       </div>
 
       <div className={styles['form-row']}>
@@ -109,7 +112,7 @@ function JournalForm({ onSubmit }) {
           <img src="/folder.svg" alt="Иконка папки" />
           <span>Метки</span>
         </label>
-        <Input type="text" onChange={onChange} value={values.tag} className={styles['input']} name="tag" id="tag"/>
+        <Input type="text" onChange={onChange} value={values.tag} className={styles['input']} name="tag" id="tag" />
       </div>
 
       <textarea name="post" ref={postRef} onChange={onChange} value={values.post} id="" cols="30" rows="10" className={classNames(styles['input'], {
