@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
 import Body from './layouts/Body/Body';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
@@ -42,6 +43,7 @@ function mapItems(items) {
 
 function App() {
   const [items, setItems] = useLocalStorage('data');
+  const [userId, setUserId] = useState(2);
 
   const addItem = item => {
     setItems([...mapItems(items), {
@@ -53,7 +55,7 @@ function App() {
   };
 
   return (
-    <UserContext.Provider value={{ userId: 1 }}>
+    <UserContext.Provider value={{ userId, setUserId }}>
       <div className="app">
         <LeftPanel>
           <Header />
