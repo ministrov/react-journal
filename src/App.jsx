@@ -6,7 +6,7 @@ import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
 import './App.css';
-import { UserContextProvider } from './context/user.context';
+import { UserContexProvider } from './context/user.context';
 
 // const INITIAL_DATA = [
 //   {
@@ -45,15 +45,14 @@ function App() {
 
   const addItem = item => {
     setItems([...mapItems(items), {
-      post: item.post,
-      title: item.title,
+      ...item,
       date: new Date(item.date),
       id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1
     }]);
   };
 
   return (
-    <UserContextProvider>
+    <UserContexProvider>
       <div className="app">
         <LeftPanel>
           <Header />
@@ -65,7 +64,7 @@ function App() {
           <JournalForm onSubmit={addItem} />
         </Body>
       </div>
-    </UserContextProvider>
+    </UserContexProvider>
   );
 }
 
