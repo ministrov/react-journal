@@ -122,7 +122,7 @@ function JournalForm({ onSubmit }) {
       <textarea name="post" ref={postRef} onChange={onChange} value={values.post} id="" cols="30" rows="10" className={classNames(styles['input'], {
         [styles['invalid']]: !isValid.post
       })}></textarea>
-      <Button text="Сохранить" />
+      <Button>Сохранить</Button>
     </form>
   );
 }
