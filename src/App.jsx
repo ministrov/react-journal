@@ -48,11 +48,30 @@ function App() {
   console.log(selectedItem);
 
   const addItem = item => {
-    setItems([...mapItems(items), {
-      ...item,
-      date: new Date(item.date),
-      id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1
-    }]);
+    if (!item.id) {
+      // Creating journal item
+      setItems([...mapItems(items), {
+        ...item,
+        date: new Date(item.date),
+        id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1
+      }]);
+    } else {
+      // Updating journal item
+      setItems([...mapItems(items).map(i => {
+        if (i.id === item.id) {
+          return {
+            ...item
+          };
+        } else {
+          return i;
+        }
+      })]);
+    }
+  };
+
+  const deleteItem = (id) => {
+    console.log('Delete', id);
+    setItems([...items.filter(i => i.id !== id)]);
   };
 
   return (
@@ -65,7 +84,7 @@ function App() {
         </LeftPanel>
 
         <Body>
-          <JournalForm onSubmit={addItem} data={selectedItem}/>
+          <JournalForm onDelete={deleteItem} onSubmit={addItem} data={selectedItem}/>
         </Body>
       </div>
     </UserContexProvider>
