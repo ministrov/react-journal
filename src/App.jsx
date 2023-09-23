@@ -7,6 +7,7 @@ import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
 import './App.css';
 import { UserContexProvider } from './context/user.context';
+import { useState } from 'react';
 
 // const INITIAL_DATA = [
 //   {
@@ -42,6 +43,9 @@ function mapItems(items) {
 
 function App() {
   const [items, setItems] = useLocalStorage('data');
+  const [selectedItem, setSelectedItem] = useState({});
+
+  console.log(selectedItem);
 
   const addItem = item => {
     setItems([...mapItems(items), {
@@ -57,11 +61,11 @@ function App() {
         <LeftPanel>
           <Header />
           <JournalAddButton />
-          <JournalList items={mapItems(items)} />
+          <JournalList items={mapItems(items)} setItem={setSelectedItem}/>
         </LeftPanel>
 
         <Body>
-          <JournalForm onSubmit={addItem} />
+          <JournalForm onSubmit={addItem} data={selectedItem}/>
         </Body>
       </div>
     </UserContexProvider>

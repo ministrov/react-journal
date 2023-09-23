@@ -6,7 +6,7 @@ import styles from './JournalForm.module.css';
 import { INITIAL_STATE, formReducer } from './JournalForm.state';
 import { UserContext } from '../../context/user.context';
 
-function JournalForm({ onSubmit }) {
+function JournalForm({ onSubmit, data }) {
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
   const { isValid, isFormReadyToSubmit, values } = formState;
   const titleRef = useRef();
@@ -29,6 +29,10 @@ function JournalForm({ onSubmit }) {
   };
 
   useEffect(() => {
+    dispatchForm({ type: 'SET_VALUE', payload: { ...data }});
+  }, [data]);
+
+  useEffect(() => {
     let timerId;
     // This code helps to clear inputs from red background in 2 seconds after submiting
     if (!isValid.title || !isValid.post || !isValid.date) {
@@ -47,9 +51,10 @@ function JournalForm({ onSubmit }) {
     if (isFormReadyToSubmit) {
       onSubmit(values);
       dispatchForm({ type: 'CLEAR'});
+      dispatchForm({ type: 'SET_VALUE', payload: { userId } });
     }
 
-  }, [isFormReadyToSubmit, values, onSubmit]);
+  }, [isFormReadyToSubmit, values, onSubmit, userId]);
 
   useEffect(() => {
     dispatchForm({ type: 'SET_VALUE', payload: { userId } });
@@ -108,7 +113,7 @@ function JournalForm({ onSubmit }) {
           <img src="/calendar.svg" alt="Иконка календаря" />
           <span>Дата</span>
         </label>
-        <Input type="date" ref={dateRef} isValid={isValid.date} onChange={onChange} value={values.date} name="date" id="date" />
+        <Input type="date" ref={dateRef} isValid={isValid.date} onChange={onChange} value={values.date ? values.date.toISOString().slice(0, 10) : ''} name="date" id="date" />
       </div>
 
       <div className={styles['form-row']}>
