@@ -9,27 +9,6 @@ import './App.css';
 import { UserContexProvider } from './context/user.context';
 import { useState } from 'react';
 
-// const INITIAL_DATA = [
-//   {
-//     id: 1,
-//     title: 'Подготовка к обновлению курсов',
-//     post: 'Горные походы открывают удивительные природные ландшафты',
-//     date: new Date()
-//   },
-//   {
-//     id: 2,
-//     title: 'Поход в годы',
-//     post: 'Думал, что очень много времени',
-//     date: new Date()
-//   },
-//   {
-//     id: 3,
-//     title: 'Первая заметка',
-//     post: 'Создал первую заметку, чтобы',
-//     date: new Date()
-//   }
-// ];
-
 function mapItems(items) {
   if (!items) {
     return [];
@@ -44,8 +23,6 @@ function mapItems(items) {
 function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
-
-  console.log(selectedItem);
 
   const addItem = item => {
     if (!item.id) {
