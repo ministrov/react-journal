@@ -27,6 +27,7 @@ function App() {
   console.log(items);
 
   const addItem = item => {
+    console.log(item);
     if (!item.id) {
       // Creating journal item
       setItems([...mapItems(items), {
