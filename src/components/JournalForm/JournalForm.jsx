@@ -14,6 +14,8 @@ function JournalForm({ onSubmit, data, onDelete }) {
   const postRef = useRef();
   const { userId } = useContext(UserContext);
 
+  console.log(formState);
+
   const focusError = (isValid) => {
     switch(true) {
       case !isValid.title:
@@ -110,7 +112,6 @@ function JournalForm({ onSubmit, data, onDelete }) {
 
   return (
     <form className={styles['journal-form']} onSubmit={addJournalItem}>
-      {userId}
       <div className={styles['form-row']}>
         <Input type="text" ref={titleRef} isValid={isValid.title} onChange={onChange} value={values.title} name="title" appearence="title" />
         {data.id && <button className={styles['delete']} type='button' onClick={deleteJournalItem}>

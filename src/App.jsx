@@ -24,6 +24,8 @@ function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
 
+  console.log(items);
+
   const addItem = item => {
     if (!item.id) {
       // Creating journal item
