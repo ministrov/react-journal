@@ -19,16 +19,17 @@ function JournalList({ items, setItem }) {
     .filter(el => el.userId === userId)
     .sort(sortItem), [items, userId]);
 
+  console.log(filteredItems);
+
   if (items.length === 0) {
     return <p>There is no notes</p>;
   }
 
-
   return (
     <>
       {filteredItems
-        .map(item => (
-          <CardButton key={item.id} onClick={() => setItem(item)}>
+        .map((item, index) => (
+          <CardButton key={index + 1} onClick={() => setItem(item)}>
             <JournalItem
               title={item.title}
               post={item.post}

@@ -24,27 +24,21 @@ function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
 
-  console.log(items);
-
   const addItem = item => {
-    console.log(item);
     if (!item.id) {
-      // Creating journal item
       setItems([...mapItems(items), {
         ...item,
         date: new Date(item.date),
         id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1
       }]);
     } else {
-      // Updating journal item
       setItems([...mapItems(items).map(i => {
         if (i.id === item.id) {
           return {
             ...item
           };
-        } else {
-          return i;
         }
+        return i;
       })]);
     }
   };
@@ -59,7 +53,7 @@ function App() {
       <div className="app">
         <LeftPanel>
           <Header />
-          <JournalAddButton />
+          <JournalAddButton clearForm={() => setSelectedItem(null)}/>
           <JournalList items={mapItems(items)} setItem={setSelectedItem}/>
         </LeftPanel>
 

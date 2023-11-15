@@ -14,8 +14,6 @@ function JournalForm({ onSubmit, data, onDelete }) {
   const postRef = useRef();
   const { userId } = useContext(UserContext);
 
-  console.log(formState);
-
   const focusError = (isValid) => {
     switch(true) {
       case !isValid.title:
@@ -109,6 +107,8 @@ function JournalForm({ onSubmit, data, onDelete }) {
     dispatchForm({ type: 'CLEAR' });
     dispatchForm({ type: 'SET_VALUE', payload: { userId } });
   };
+
+  // console.log(data.id);
 
   return (
     <form className={styles['journal-form']} onSubmit={addJournalItem}>
