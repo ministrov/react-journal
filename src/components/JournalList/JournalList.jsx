@@ -15,26 +15,21 @@ function JournalList({ items, setItem }) {
     }
   };
 
-  const filteredItems = useMemo(() => items
-    .filter(el => el.userId === userId)
-    .sort(sortItem), [items, userId]);
+  const filteredItems = useMemo(
+    () => items.filter((el) => el.userId === userId).sort(sortItem),
+    [items, userId]
+  );
 
   if (items.length === 0) {
     return <p>There is no notes</p>;
   }
 
-
   return (
     <>
-      {filteredItems
-        .map(item => (
-          <CardButton key={item.id} onClick={() => setItem(item)}>
-            <JournalItem
-              title={item.title}
-              post={item.post}
-              date={item.date}
-            />
-          </CardButton>
+      {filteredItems.map((item, index) => (
+        <CardButton key={index + 1} onClick={() => setItem(item)}>
+          <JournalItem title={item.title} post={item.post} date={item.date} />
+        </CardButton>
       ))}
     </>
   );
