@@ -1,10 +1,10 @@
 import { useContext, useEffect, useReducer, useRef } from 'react';
-import classNames from 'classnames';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
-import styles from './JournalForm.module.css';
 import { INITIAL_STATE, formReducer } from './JournalForm.state';
 import { UserContext } from '../../context/user.context';
+import classNames from 'classnames';
+import styles from './JournalForm.module.css';
 
 function JournalForm({ onSubmit, data, onDelete }) {
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
@@ -125,7 +125,7 @@ function JournalForm({ onSubmit, data, onDelete }) {
           name="title"
           appearence="title"
         />
-        {data.id ? (
+        {data.id && (
           <button
             className={styles['delete']}
             type="button"
@@ -133,7 +133,8 @@ function JournalForm({ onSubmit, data, onDelete }) {
           >
             <img src="/archive.svg" alt="Кнопка удалить" />
           </button>
-        ) : null}
+          )
+        }
       </div>
       <div className={styles['form-row']}>
         <label htmlFor="date" className={styles['form-label']}>
