@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import styles from './JournalForm.module.css';
 
 function JournalForm({ onSubmit, data, onDelete }) {
+  // console.log(data);
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
   const { isValid, isFormReadyToSubmit, values } = formState;
   const titleRef = useRef();
@@ -30,7 +31,7 @@ function JournalForm({ onSubmit, data, onDelete }) {
 
   useEffect(() => {
     dispatchForm({ type: 'SET_VALUE', payload: { ...data } });
-    console.log(data);
+    // console.log(data);
   }, [data]);
 
   useEffect(() => {
@@ -125,7 +126,7 @@ function JournalForm({ onSubmit, data, onDelete }) {
           name="title"
           appearence="title"
         />
-        {data.id && (
+        {data?.id && (
           <button
             className={styles['delete']}
             type="button"

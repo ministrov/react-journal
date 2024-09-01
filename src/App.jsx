@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
-import Body from './layouts/Body/Body';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
-import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
-import './App.css';
+import Body from './layouts/Body/Body';
+import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import { UserContexProvider } from './context/user.context';
-import { useState } from 'react';
+import './App.css';
 
 function mapItems(items) {
   if (!items) {
@@ -29,8 +29,8 @@ function App() {
       setItems([...mapItems(items), {
         ...item,
         date: new Date(item.date),
-        // id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1
-        id: Math.floor(Math.random() * 10) + 1
+        id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1
+        // id: Math.floor(Math.random() * 10) + 1
       }]);
     } else {
       setItems([...mapItems(items).map(i => {
