@@ -9,6 +9,15 @@ import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import { UserContexProvider } from './context/user.context';
 import './App.css';
 
+const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
+
+const frequency = array.reduce((acc, item) => {
+  acc[item] = (acc[item] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(frequency);
+
 function mapItems(items) {
   if (!items) {
     return [];
@@ -23,6 +32,8 @@ function mapItems(items) {
 function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
+
+  console.log(selectedItem);
 
   const addItem = item => {
     if (!item.id) {
