@@ -11,12 +11,33 @@ import './App.css';
 
 const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
 
-const frequency = array.reduce((acc, item) => {
-  acc[item] = (acc[item] || 0) + 1;
-  return acc;
-}, {});
+const getUniqueFrequency = (arr) => {
+  let result = {};
 
-console.log(frequency);
+  for (let i = 0; i < arr.length; i++) {
+    if (result[arr[i]]) {
+      result[arr[i]] = result[arr[i]] + 1;
+    } else {
+      result[arr[i]] = 1;
+    }
+  }
+  // for (const num of arr) {
+  //   result[num] = result[num] ? result[num] + 1 : 1;
+  // }
+
+  return result;
+};
+
+console.log(getUniqueFrequency(array));
+
+// const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
+
+// const frequency = array.reduce((acc, item) => {
+//   acc[item] = (acc[item] || 0) + 1;
+//   return acc;
+// }, {});
+
+// console.log(frequency);
 
 function mapItems(items) {
   if (!items) {
@@ -33,7 +54,7 @@ function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
 
-  console.log(selectedItem);
+  // console.log(selectedItem);
 
   const addItem = item => {
     if (!item.id) {
@@ -56,7 +77,7 @@ function App() {
   };
 
   const deleteItem = (id) => {
-    console.log('Delete', id);
+    // console.log('Delete', id);
     setItems([...items.filter(i => i.id !== id)]);
   };
 
