@@ -7,8 +7,18 @@ import JournalForm from './components/JournalForm/JournalForm';
 import Body from './layouts/Body/Body';
 import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import { UserContexProvider } from './context/user.context';
+// import { formReducer, INITIAL_STATE } from './components/JournalForm/JournalForm.state';
 import './App.css';
-import { formReducer, INITIAL_STATE } from './components/JournalForm/JournalForm.state';
+import { makeBinarySearch } from './utils';
+
+let arr = [2, 3, 4, 10, 40, 56, 123, 345];
+let x = 12;
+
+if (makeBinarySearch(arr, x)) {
+  console.log('Element found!');
+} else {
+  console.log('Element not found!');
+}
 
 // const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
 
@@ -54,10 +64,7 @@ function mapItems(items) {
 function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
-  const [, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
-
-  // console.log(selectedItem);
-  console.log(items);
+  // const [, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
 
   const addItem = item => {
     if (!item.id) {
@@ -80,7 +87,6 @@ function App() {
   };
 
   const deleteItem = (id) => {
-    // console.log('Delete', id);
     setItems([...items.filter(i => i.id !== id)]);
   };
 
