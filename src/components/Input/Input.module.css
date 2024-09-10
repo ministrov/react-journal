@@ -19,3 +19,10 @@
 	border: 1px solid red;
 	background: rgb(68, 6, 6);
 }
+
+::-webkit-calendar-picker-indicator {
+	background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 8px;
+	transform: scale(1.2) translateX(-13px);
+}
