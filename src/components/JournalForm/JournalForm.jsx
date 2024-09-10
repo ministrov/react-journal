@@ -112,8 +112,6 @@ function JournalForm({ onSubmit, data, onDelete }) {
     dispatchForm({ type: 'SET_VALUE', payload: { userId } });
   };
 
-  // console.log(data.id);
-
   return (
     <form className={styles['journal-form']} onSubmit={addJournalItem}>
       <div className={styles['form-row']}>

@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import Header from './components/Header/Header';
@@ -9,46 +9,16 @@ import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import { UserContexProvider } from './context/user.context';
 // import { formReducer, INITIAL_STATE } from './components/JournalForm/JournalForm.state';
 import './App.css';
-import { makeBinarySearch } from './utils';
+// import { makeBinarySearch } from './utils';
 
-let arr = [2, 3, 4, 10, 40, 56, 123, 345];
-let x = 12;
+// let arr = [2, 3, 4, 10, 40, 56, 123, 345];
+// let x = 12;
 
-if (makeBinarySearch(arr, x)) {
-  console.log('Element found!');
-} else {
-  console.log('Element not found!');
-}
-
-// const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
-
-// const getUniqueFrequency = (arr) => {
-//   let result = {};
-
-//   for (let i = 0; i < arr.length; i++) {
-//     if (result[arr[i]]) {
-//       result[arr[i]] = result[arr[i]] + 1;
-//     } else {
-//       result[arr[i]] = 1;
-//     }
-//   }
-//   // for (const num of arr) {
-//   //   result[num] = result[num] ? result[num] + 1 : 1;
-//   // }
-
-//   return result;
-// };
-
-// console.log(getUniqueFrequency(array));
-
-// const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
-
-// const frequency = array.reduce((acc, item) => {
-//   acc[item] = (acc[item] || 0) + 1;
-//   return acc;
-// }, {});
-
-// console.log(frequency);
+// if (makeBinarySearch(arr, x)) {
+//   console.log('Element found!');
+// } else {
+//   console.log('Element not found!');
+// }
 
 function mapItems(items) {
   if (!items) {
@@ -65,6 +35,10 @@ function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
   // const [, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
+
+  useEffect(() => {
+    console.log(items);
+  }, [items]);
 
   const addItem = item => {
     if (!item.id) {
