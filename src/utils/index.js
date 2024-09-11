@@ -1,3 +1,14 @@
+// import { makeBinarySearch } from './utils';
+
+// let arr = [2, 3, 4, 10, 40, 56, 123, 345];
+// let x = 12;
+
+// if (makeBinarySearch(arr, x)) {
+//   console.log('Element found!');
+// } else {
+//   console.log('Element not found!');
+// }
+
 export function makeBinarySearch(array, x) {
   let start = 0, end = array.length - 1;
   while (start <= end) {

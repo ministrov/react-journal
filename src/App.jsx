@@ -4,22 +4,11 @@ import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
-// import AnimatedInput from './components/AnimatedInput/AnimatedInput';
 import Body from './layouts/Body/Body';
 import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import { UserContexProvider } from './context/user.context';
 // import { formReducer, INITIAL_STATE } from './components/JournalForm/JournalForm.state';
 import './App.css';
-// import { makeBinarySearch } from './utils';
-
-// let arr = [2, 3, 4, 10, 40, 56, 123, 345];
-// let x = 12;
-
-// if (makeBinarySearch(arr, x)) {
-//   console.log('Element found!');
-// } else {
-//   console.log('Element not found!');
-// }
 
 function mapItems(items) {
   if (!items) {

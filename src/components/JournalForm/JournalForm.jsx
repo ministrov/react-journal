@@ -6,10 +6,8 @@ import { INITIAL_STATE, formReducer } from './JournalForm.state';
 import { UserContext } from '../../context/user.context';
 import classNames from 'classnames';
 import styles from './JournalForm.module.css';
-// import AnimatedInput from '../AnimatedInput/AnimatedInput';
 
 function JournalForm({ onSubmit, data, onDelete }) {
-  // console.log(data);
   const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
   const { isValid, isFormReadyToSubmit, values } = formState;
   const titleRef = useRef();
@@ -33,7 +31,6 @@ function JournalForm({ onSubmit, data, onDelete }) {
 
   useEffect(() => {
     dispatchForm({ type: 'SET_VALUE', payload: { ...data } });
-    // console.log(data);
   }, [data]);
 
   useEffect(() => {
