@@ -4,6 +4,7 @@ import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import Header from './components/Header/Header';
 import JournalList from './components/JournalList/JournalList';
 import JournalForm from './components/JournalForm/JournalForm';
+// import AnimatedInput from './components/AnimatedInput/AnimatedInput';
 import Body from './layouts/Body/Body';
 import LeftPanel from './layouts/LeftPanel/LeftPanel';
 import { UserContexProvider } from './context/user.context';

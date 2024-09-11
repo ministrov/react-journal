@@ -1,10 +1,12 @@
 import { useContext, useEffect, useReducer, useRef } from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
+import AnimatedInput from '../AnimatedInput/AnimatedInput';
 import { INITIAL_STATE, formReducer } from './JournalForm.state';
 import { UserContext } from '../../context/user.context';
 import classNames from 'classnames';
 import styles from './JournalForm.module.css';
+// import AnimatedInput from '../AnimatedInput/AnimatedInput';
 
 function JournalForm({ onSubmit, data, onDelete }) {
   // console.log(data);
@@ -181,6 +183,8 @@ function JournalForm({ onSubmit, data, onDelete }) {
         })}
       ></textarea>
       <Button>Сохранить</Button>
+
+      <AnimatedInput/>
     </form>
   );
 }
