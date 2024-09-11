@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useState } from 'react';
+import { useState } from 'react';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import Header from './components/Header/Header';
@@ -35,10 +35,6 @@ function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
   // const [, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
-
-  useEffect(() => {
-    console.log(items);
-  }, [items]);
 
   const addItem = item => {
     if (!item.id) {

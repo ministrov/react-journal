@@ -1,5 +1,6 @@
 .input {
 	width: 100%;
+	min-height: inherit;
 	font-family: 'Source Sans 3', sans-serif;
 	font-size: 14px;
 	font-style: normal;
@@ -20,9 +21,16 @@
 	background: rgb(68, 6, 6);
 }
 
-::-webkit-calendar-picker-indicator {
-	background-color: #ffffff;
+input[type="date"]::-webkit-calendar-picker-indicator {
+	background-color: transparent;
   cursor: pointer;
+	border: 1px solid #323232;
   border-radius: 8px;
 	transform: scale(1.2) translateX(-13px);
+	filter: invert(0.8);
+	opacity: 0.6;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+	opacity: 1;
 }
