@@ -1,8 +1,8 @@
 import { useContext, useMemo } from 'react';
 import CardButton from '../CardButton/CardButton';
 import JournalItem from '../JournalItem/JournalItem';
-import './JournalList.css';
 import { UserContext } from '../../context/user.context';
+import styles from './JournalList.module.css';
 
 function JournalList({ items, setItem }) {
   const { userId } = useContext(UserContext);
@@ -25,13 +25,13 @@ function JournalList({ items, setItem }) {
   }
 
   return (
-    <>
+    <ul className={styles["journal-list"]}>
       {filteredItems.map((item, index) => (
         <CardButton key={index + 1} onClick={() => setItem(item)}>
           <JournalItem title={item.title} post={item.post} date={item.date} />
         </CardButton>
       ))}
-    </>
+    </ul>
   );
 }
 
