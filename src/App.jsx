@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useLocalStorage } from './hooks/use-localstorage.hook';
-import JournalAddButton from './components/JournalAddButton/JournalAddButton';
-import Header from './components/Header/Header';
-import JournalList from './components/JournalList/JournalList';
-import JournalForm from './components/JournalForm/JournalForm';
-import Body from './layouts/Body/Body';
-import LeftPanel from './layouts/LeftPanel/LeftPanel';
-import { UserContexProvider } from './context/user.context';
-// import { formReducer, INITIAL_STATE } from './components/JournalForm/JournalForm.state';
+import { useLocalStorage } from './hooks/use-localstorage.hook.js';
+import JournalAddButton from './components/JournalAddButton/JournalAddButton.jsx';
+import Header from './components/Header/Header.jsx';
+import JournalList from './components/JournalList/JournalList.jsx';
+import JournalForm from './components/JournalForm/JournalForm.jsx';
+import Body from './layouts/Body/Body.jsx';
+import LeftPanel from './layouts/LeftPanel/LeftPanel.jsx';
+import { UserContexProvider } from './context/user.context.jsx';
+import { ThemeContext } from './context/theme.context.js';
 import './App.css';
 
 function mapItems(items) {
@@ -24,7 +24,7 @@ function mapItems(items) {
 function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
-  // const [, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
+  const [theme, setTheme] = useState('dark');
 
   const addItem = item => {
     if (!item.id) {
@@ -50,20 +50,26 @@ function App() {
     setItems([...items.filter(i => i.id !== id)]);
   };
 
-  return (
-    <UserContexProvider>
-      <div className="app">
-        <LeftPanel>
-          <Header />
-          <JournalAddButton />
-          <JournalList items={mapItems(items)} setItem={setSelectedItem}/>
-        </LeftPanel>
+  const toggleTheme = () => {
+    setTheme((curr) => curr === 'dark' ? 'light' : 'dark');
+  };
 
-        <Body>
-          <JournalForm onDelete={deleteItem} onSubmit={addItem} data={selectedItem}/>
-        </Body>
-      </div>
-    </UserContexProvider>
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <UserContexProvider>
+        <div className="app" id={theme}>
+          <LeftPanel>
+            <Header />
+            <JournalAddButton />
+            <JournalList items={mapItems(items)} setItem={setSelectedItem} />
+          </LeftPanel>
+
+          <Body>
+            <JournalForm onDelete={deleteItem} onSubmit={addItem} data={selectedItem} />
+          </Body>
+        </div>
+      </UserContexProvider>
+    </ThemeContext.Provider>
   );
 }
 
