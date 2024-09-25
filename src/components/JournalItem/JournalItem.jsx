@@ -3,7 +3,7 @@ import styles from './JournalItem.module.css';
 function JournalItem({ title, post, date }) {
   const formatedDate = new Intl.DateTimeFormat('ru-Ru').format(date);
   // console.log(formatedDate);
-  console.log(date);
+  // console.log(date);
   return (
     <>
       <h2 className={styles['journal-item-header']}>{title}</h2>
