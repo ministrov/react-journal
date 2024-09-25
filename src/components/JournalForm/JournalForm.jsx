@@ -185,7 +185,7 @@ function JournalForm({ onSubmit, data, onDelete }) {
 
       <AnimatedInput/>
 
-      <Checkbox typeName={'shipping'} typeLabel={'Shipping for label'}/>
+      <Checkbox typeName={'shipping'} labelName={'Shipping for label'}/>
     </form>
   );
 }
