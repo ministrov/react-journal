@@ -11,6 +11,28 @@ import { ThemeContext } from './context/theme.context.js';
 import './App.css';
 // import Checkbox from './components/Checkbox/Checkbox.jsx';
 
+// To define a geolocation position of the user
+const getCurrentPosition = () => {
+  // navigator.geolocation.getCurrentPosition(
+  //   position => console.log(position),
+  //   error => console.log(error)
+  // );
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+async function getUserLocation() {
+  try {
+    const location = getCurrentPosition();
+    console.log(location);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+console.log(getUserLocation());
+
 function mapItems(items) {
   if (!items) {
     return [];
