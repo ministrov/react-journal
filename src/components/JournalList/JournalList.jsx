@@ -25,7 +25,7 @@ function JournalList({ items, setItem }) {
   }
 
   return (
-    <ul className={styles["journal-list"]}>
+    <ul className={styles['journal-list']}>
       {filteredItems.map((item, index) => (
         <CardButton key={index + 1} onClick={() => setItem(item)}>
           <JournalItem title={item.title} post={item.post} date={item.date} />

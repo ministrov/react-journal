@@ -51,6 +51,7 @@ function JournalForm({ onSubmit, data, onDelete }) {
   useEffect(() => {
     if (isFormReadyToSubmit) {
       onSubmit(values);
+      console.log(values);
       dispatchForm({ type: 'CLEAR' });
       dispatchForm({ type: 'SET_VALUE', payload: { userId } });
     }
