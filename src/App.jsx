@@ -9,6 +9,7 @@ import LeftPanel from './layouts/LeftPanel/LeftPanel.jsx';
 import { UserContexProvider } from './context/user.context.jsx';
 import { ThemeContext } from './context/theme.context.js';
 import './App.css';
+// import Checkbox from './components/Checkbox/Checkbox.jsx';
 
 function mapItems(items) {
   if (!items) {
@@ -68,6 +69,8 @@ function App() {
           <Body>
             <JournalForm onDelete={deleteItem} onSubmit={addItem} data={selectedItem} />
           </Body>
+
+          {/* <Checkbox typeName={'shipping'} typeLabel={'Shipping for label'}/> */}
         </div>
       </UserContexProvider>
     </ThemeContext.Provider>

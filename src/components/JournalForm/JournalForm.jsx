@@ -2,6 +2,7 @@ import { useContext, useEffect, useReducer, useRef } from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import AnimatedInput from '../AnimatedInput/AnimatedInput';
+import Checkbox from '../Checkbox/Checkbox';
 import { INITIAL_STATE, formReducer } from './JournalForm.state';
 import { UserContext } from '../../context/user.context';
 import classNames from 'classnames';
@@ -183,6 +184,8 @@ function JournalForm({ onSubmit, data, onDelete }) {
       <Button>Сохранить</Button>
 
       <AnimatedInput/>
+
+      <Checkbox typeName={'shipping'} typeLabel={'Shipping for label'}/>
     </form>
   );
 }
