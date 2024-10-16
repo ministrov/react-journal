@@ -110,7 +110,14 @@ export function validStr(str) {
 // Выполнить через цикл
 // Примеры смотрим в тест-кейсах
 
-function isPalindrome(str) {
+export function isPalindrome(str) {
+  const reversedStr = str.split('').reverse().join('');
+
+  if (str.toLowerCase() === reversedStr.toLowerCase()) {
+    return true;
+  }
+
+  return false;
 }
 
 // Тест-кейсы
