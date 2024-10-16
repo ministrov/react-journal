@@ -75,18 +75,36 @@ export default function doAnotherBinarySearch(numbers, x) {
 };
 
 // Проверить на валидность строку, у каждой открывающей скобки ( должна быть закрывающая ее скобка
-function validStr(str) {
+export function validStr(str) {
+  const strArr = str.split("");
+  const stack = [];
 
+  for (let char of strArr) {
+    if (char.startsWith('(')) {
+      stack.push(char);
+    } else {
+      if (stack.length === 0) {
+        return false;
+      }
+
+      const top = stack.pop();
+
+      if (top === '(' && char !== ')') {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
 }
 
 // Тест кейсы
-
-console.log(validStr("())")) // false
-console.log(validStr("(()")) // false
-console.log(validStr("(())")) // true
-console.log(validStr("(()))")) // false
-console.log(validStr(")())")) // false
-console.log(validStr("")) // true
+// console.log(validStr("())")) // false
+// console.log(validStr("(()")) // false
+// console.log(validStr("(())")) // true
+// console.log(validStr("(()))")) // false
+// console.log(validStr(")())")) // false
+// console.log(validStr("")) // true
 
 // Определить, является ли строка переданная в аргумент полиндромом
 // Выполнить через цикл
