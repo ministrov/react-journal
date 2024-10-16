@@ -26,25 +26,6 @@ export function makeBinarySearch(array, x) {
   return false;
 }
 
-
-export default function doBinarySearch(numbers, x) {
-  let startIndex = 0, endIndex = numbers.length - 1;
-
-  while (startIndex <= endIndex) {
-    let mid = Math.floor((startIndex + endIndex) / 2);
-
-    if (numbers[mid] === x) {
-      return true;
-    } else if (numbers[mid] < x) {
-      startIndex = mid + 1;
-    } else {
-      endIndex = mid - 1;
-    }
-  }
-
-  return false;
-}
-
 // const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
 
 // const getUniqueFrequency = (arr) => {
@@ -74,3 +55,48 @@ export default function doBinarySearch(numbers, x) {
 // }, {});
 
 // console.log(frequency);
+
+export default function doAnotherBinarySearch(numbers, x) {
+  let startIndex = 0, endIndex = numbers.length - 1;
+
+  while (startIndex <= endIndex) {
+    let mid = Math.floor((startIndex + endIndex) / 2);
+
+    if (numbers[mid] === x) {
+      return true;
+    } else if (numbers[mid] < x) {
+      startIndex = mid + 1;
+    } else {
+      endIndex = mid - 1;
+    }
+  }
+
+  return false;
+};
+
+// Проверить на валидность строку, у каждой открывающей скобки ( должна быть закрывающая ее скобка
+function validStr(str) {
+
+}
+
+// Тест кейсы
+
+console.log(validStr("())")) // false
+console.log(validStr("(()")) // false
+console.log(validStr("(())")) // true
+console.log(validStr("(()))")) // false
+console.log(validStr(")())")) // false
+console.log(validStr("")) // true
+
+// Определить, является ли строка переданная в аргумент полиндромом
+// Выполнить через цикл
+// Примеры смотрим в тест-кейсах
+
+function isPalindrome(str) {
+}
+
+// Тест-кейсы
+console.log(isPalindrome("Heah")) // false
+console.log(isPalindrome("Heeh")) // true
+console.log(isPalindrome("He")) // false
+console.log(isPalindrome("pep")) // true
