@@ -16,10 +16,29 @@ export function makeBinarySearch(array, x) {
 
     if (array[mid] === x) {
       return true;
-    } else if(array[mid] < x) {
+    } else if (array[mid] < x) {
       start = mid + 1;
     } else {
       end = mid - 1;
+    }
+  }
+
+  return false;
+}
+
+
+export default function doBinarySearch(numbers, x) {
+  let startIndex = 0, endIndex = numbers.length - 1;
+
+  while (startIndex <= endIndex) {
+    let mid = Math.floor((startIndex + endIndex) / 2);
+
+    if (numbers[mid] === x) {
+      return true;
+    } else if (numbers[mid] < x) {
+      startIndex = mid + 1;
+    } else {
+      endIndex = mid - 1;
     }
   }
 
