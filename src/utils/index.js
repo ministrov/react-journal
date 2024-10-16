@@ -1,127 +1,278 @@
-// import { makeBinarySearch } from './utils';
+// // import { makeBinarySearch } from './utils';
 
-// let arr = [2, 3, 4, 10, 40, 56, 123, 345];
-// let x = 12;
+// // let arr = [2, 3, 4, 10, 40, 56, 123, 345];
+// // let x = 12;
 
-// if (makeBinarySearch(arr, x)) {
-//   console.log('Element found!');
-// } else {
-//   console.log('Element not found!');
-// }
+// // if (makeBinarySearch(arr, x)) {
+// //   console.log('Element found!');
+// // } else {
+// //   console.log('Element not found!');
+// // }
 
-export function makeBinarySearch(array, x) {
-  let start = 0, end = array.length - 1;
-  while (start <= end) {
-    let mid = Math.floor((start + end) / 2);
+// export function makeBinarySearch(array, x) {
+//   let start = 0, end = array.length - 1;
+//   while (start <= end) {
+//     let mid = Math.floor((start + end) / 2);
 
-    if (array[mid] === x) {
-      return true;
-    } else if (array[mid] < x) {
-      start = mid + 1;
-    } else {
-      end = mid - 1;
-    }
-  }
-
-  return false;
-}
-
-// const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
-
-// const getUniqueFrequency = (arr) => {
-//   let result = {};
-
-//   for (let i = 0; i < arr.length; i++) {
-//     if (result[arr[i]]) {
-//       result[arr[i]] = result[arr[i]] + 1;
+//     if (array[mid] === x) {
+//       return true;
+//     } else if (array[mid] < x) {
+//       start = mid + 1;
 //     } else {
-//       result[arr[i]] = 1;
+//       end = mid - 1;
 //     }
 //   }
-//   // for (const num of arr) {
-//   //   result[num] = result[num] ? result[num] + 1 : 1;
-//   // }
 
-//   return result;
+//   return false;
+// }
+
+// // const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
+
+// // const getUniqueFrequency = (arr) => {
+// //   let result = {};
+
+// //   for (let i = 0; i < arr.length; i++) {
+// //     if (result[arr[i]]) {
+// //       result[arr[i]] = result[arr[i]] + 1;
+// //     } else {
+// //       result[arr[i]] = 1;
+// //     }
+// //   }
+// //   // for (const num of arr) {
+// //   //   result[num] = result[num] ? result[num] + 1 : 1;
+// //   // }
+
+// //   return result;
+// // };
+
+// // console.log(getUniqueFrequency(array));
+
+// // const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
+
+// // const frequency = array.reduce((acc, item) => {
+// //   acc[item] = (acc[item] || 0) + 1;
+// //   return acc;
+// // }, {});
+
+// // console.log(frequency);
+
+// export default function doAnotherBinarySearch(numbers, x) {
+//   let startIndex = 0, endIndex = numbers.length - 1;
+
+//   while (startIndex <= endIndex) {
+//     let mid = Math.floor((startIndex + endIndex) / 2);
+
+//     if (numbers[mid] === x) {
+//       return true;
+//     } else if (numbers[mid] < x) {
+//       startIndex = mid + 1;
+//     } else {
+//       endIndex = mid - 1;
+//     }
+//   }
+
+//   return false;
 // };
 
-// console.log(getUniqueFrequency(array));
+// // Проверить на валидность строку, у каждой открывающей скобки ( должна быть закрывающая ее скобка
+// export function validStr(str) {
+//   const strArr = str.split("");
+//   const stack = [];
 
-// const array = ['1', '1', '2', '2', '3', '4', '4', '5', '5'];
+//   for (let char of strArr) {
+//     if (char.startsWith('(')) {
+//       stack.push(char);
+//     } else {
+//       if (stack.length === 0) {
+//         return false;
+//       }
 
-// const frequency = array.reduce((acc, item) => {
-//   acc[item] = (acc[item] || 0) + 1;
-//   return acc;
-// }, {});
+//       const top = stack.pop();
 
-// console.log(frequency);
+//       if (top === '(' && char !== ')') {
+//         return false;
+//       }
+//     }
+//   }
 
-export default function doAnotherBinarySearch(numbers, x) {
-  let startIndex = 0, endIndex = numbers.length - 1;
+//   return stack.length === 0;
+// }
 
-  while (startIndex <= endIndex) {
-    let mid = Math.floor((startIndex + endIndex) / 2);
+// // Тест кейсы
+// // console.log(validStr("())")) // false
+// // console.log(validStr("(()")) // false
+// // console.log(validStr("(())")) // true
+// // console.log(validStr("(()))")) // false
+// // console.log(validStr(")())")) // false
+// // console.log(validStr("")) // true
 
-    if (numbers[mid] === x) {
-      return true;
-    } else if (numbers[mid] < x) {
-      startIndex = mid + 1;
-    } else {
-      endIndex = mid - 1;
-    }
-  }
+// // Определить, является ли строка переданная в аргумент полиндромом
+// // Выполнить через цикл
+// // Примеры смотрим в тест-кейсах
 
-  return false;
-};
+// export function isPalindrome(str) {
+//   const reversedStr = str.split('').reverse().join('');
 
-// Проверить на валидность строку, у каждой открывающей скобки ( должна быть закрывающая ее скобка
-export function validStr(str) {
-  const strArr = str.split("");
-  const stack = [];
+//   if (str.toLowerCase() === reversedStr.toLowerCase()) {
+//     return true;
+//   }
 
-  for (let char of strArr) {
-    if (char.startsWith('(')) {
-      stack.push(char);
-    } else {
-      if (stack.length === 0) {
-        return false;
-      }
+//   return false;
+// }
 
-      const top = stack.pop();
+// export function isPalindromeAnotherWay(string) {
+//   let reversedString = '';
 
-      if (top === '(' && char !== ')') {
-        return false;
-      }
-    }
-  }
+//   for (let i = string.length - 1; i > string.length; i--) {
+//     reversedString += string[i];
+//   }
 
-  return stack.length === 0;
-}
+//   if (string.toLowerCase() === reversedString.toLowerCase()) {
+//     return true;
+//   }
 
-// Тест кейсы
-// console.log(validStr("())")) // false
-// console.log(validStr("(()")) // false
-// console.log(validStr("(())")) // true
-// console.log(validStr("(()))")) // false
-// console.log(validStr(")())")) // false
-// console.log(validStr("")) // true
-
-// Определить, является ли строка переданная в аргумент полиндромом
-// Выполнить через цикл
-// Примеры смотрим в тест-кейсах
-
-export function isPalindrome(str) {
-  const reversedStr = str.split('').reverse().join('');
-
-  if (str.toLowerCase() === reversedStr.toLowerCase()) {
-    return true;
-  }
-
-  return false;
-}
+//   return false;
+// };
 
 // Тест-кейсы
-console.log(isPalindrome("Heah")) // false
-console.log(isPalindrome("Heeh")) // true
-console.log(isPalindrome("He")) // false
-console.log(isPalindrome("pep")) // true
+// console.log(isPalindrome("Heah")) // false
+// console.log(isPalindrome("Heeh")) // true
+// console.log(isPalindrome("He")) // false
+// console.log(isPalindrome("pep")) // true
+
+// number
+// string
+// boolean
+// object
+// bigInt
+// null
+// undefined
+// Symbol
+
+// {
+//   console.log(typeof null)
+//   console.log(typeof typeof null)
+// }
+
+// let a = 10;
+
+// function sum(b) {
+//   return a + b;
+// }
+
+// a = 20;
+
+// console.log(sum(23));
+
+// {
+//   function foo() {
+//     if (true) {
+//       console.log(a);
+//       var a = 10;
+//     }
+//     console.log(a);
+//   }
+
+//   // console.log(a);
+
+//   foo();
+// }
+
+// function counter() {
+//   let count = 0;
+
+//   return function () {
+//     count = count + 1;
+//     return count;
+//   }
+// }
+
+// const newCount = counter();
+// const newCount2 = counter();
+
+// console.log(newCount());
+// console.log(newCount());
+// console.log(newCount());
+// console.log(newCount());
+
+// console.log(newCount2());
+// console.log(newCount2());
+// console.log(newCount2());
+// console.log(newCount2());
+
+// Array.fill();
+
+// function pow(n, x) {
+//   if (x == 1) {
+//     return n;
+//   } else {
+//     return n * pow(n, x - 1)
+//   }
+// }
+
+// console.log(pow(3, 3));
+
+// function pow2(n, x) {
+//   let res = n;
+
+//   for (let i = 1; i < x; i++) {
+//     res *= n;
+//   }
+
+//   return res;
+// }
+
+// console.log(pow2(3, 3));
+
+// function pow3(n, x) {
+//   let res = n;
+
+//   while (1 < x) {
+//     res *= n;
+//     x--;
+//   }
+
+//   return res;
+// }
+
+// console.log(pow3(3, 3));
+
+// High order function
+
+// function highOrderFunc(callback, number) {
+//   return callback(number);
+// }
+
+// const array = [1, 1, 2, 2];
+
+// console.log(array.__proto__.__proto__);
+
+// const one = array.filter((num) => num === 1);
+
+// console.log(one);
+
+// const obj = {
+//   name: 'Anton',
+//   walk(a, b) {
+//     const sum = a + b;
+//     return `${this.name} : ${sum}`;
+//   }
+// };
+
+// console.log(obj.walk());
+
+// obj.walk.call('Petr');
+
+// console.log(obj.walk.call({ name: 'Petr'}, 50, 50));
+// console.log(obj.walk.apply({ name: 'Max'}, [50, 50]));
+// console.log(obj.walk.apply({ name: 'Max2'}, [50, 50]));
+// const walkWrapper = obj.walk.bind({ name: 'Max3' }, 50);
+// console.log(walkWrapper(1000));
+// foo.apply();
+// foo.bind();
+
+const obj2 = { name: 'Petr', age: 34 };
+
+const keys = Object.keys(obj2);
+
+console.log(keys.length !== 0);
