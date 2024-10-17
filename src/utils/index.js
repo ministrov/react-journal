@@ -271,8 +271,46 @@
 // foo.apply();
 // foo.bind();
 
-const obj2 = { name: 'Petr', age: 34 };
+// Проверка объекта на существование ключей
+// const obj2 = { name: 'Petr', age: 34 };
 
-const keys = Object.keys(obj2);
+// const keys = Object.keys(obj2);
 
-console.log(keys.length !== 0);
+// console.log(keys.length !== 0);
+
+{
+  // Разложить элементы массива
+  // input [1, 2, 3, 4, [5, 6, 7, 8], [[10, 177]]]
+  // output [1,2,3,4,5,6,7,8,10,177]
+
+  // const flatArray = arr => {
+  //   const newArr = [];
+
+  //   for (let i = 0; i < arr.length; i++) {
+  //     if (arr[i] !== Array.isArray(arr[i])) {
+  //       newArr.push(arr[i]);
+  //     } else {
+  //       newArr = [...i];
+  //     }
+  //   }
+
+  //   return newArr;
+  // }
+
+  // console.log(flatArray([1, 2, 3, 4, [5, 6, 7, 8], [[10, 177]]]));
+}
+
+// Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
+
+// То есть дефисы удаляются, а все слова после них получают заглавную букву.
+
+function camelize(string) {
+  let modifedStr = '';
+  const splitedStr = string.split('-');
+};
+
+Примеры:
+
+camelize("background-color") == 'backgroundColor';
+camelize("list-style-image") == 'listStyleImage';
+camelize("-webkit-transition") == 'WebkitTransition';
