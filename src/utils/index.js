@@ -1,5 +1,7 @@
 // // import { makeBinarySearch } from './utils';
 
+import { splitVendorChunk } from "vite";
+
 // // let arr = [2, 3, 4, 10, 40, 56, 123, 345];
 // // let x = 12;
 
@@ -304,13 +306,20 @@
 
 // То есть дефисы удаляются, а все слова после них получают заглавную букву.
 
-function camelize(string) {
-  let modifedStr = '';
-  const splitedStr = string.split('-');
-};
+// export function camelize(string) {
+//   let splitedStr = string.split('-');
 
-Примеры:
+//   for (let i = 0; i < splitedStr.lenght; i++) {
+//     splitedStr[i] = splitedStr[i][0].toUpperCase() + splitedStr[i].slice(1);
+//   }
 
-camelize("background-color") == 'backgroundColor';
-camelize("list-style-image") == 'listStyleImage';
-camelize("-webkit-transition") == 'WebkitTransition';
+//   splitedStr = splitedStr.join('');
+
+//   return splitedStr;
+// };
+
+// Примеры:
+
+// camelize("background-color") == 'backgroundColor';
+// camelize("list-style-image") == 'listStyleImage';
+// camelize("-webkit-transition") == 'WebkitTransition';
