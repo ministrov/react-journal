@@ -2,52 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
-// import { camelize } from './utils/index.js';
 
-// const flatArray = arr => {
-//   let newArr = [];
+function sum(a, b) {
+  return a + b;
+}
 
-//   for (let i = 0; i < arr.length; i++) {
-//     if (!Array.isArray(arr[i])) {
-//       newArr.push(arr[i]);
-//     } else {
-//       newArr = [...arr[i]];
-//     }
-//   }
+function substract(a, b) {
+  return a - b;
+}
 
-//   return newArr;
-// }
+function calculate(a, b, fn) {
+  console.log(typeof fn);
+  console.log(fn.name);
 
-// console.log(flatArray([1, 2, 3, 4, [5, 6, 7, 8], [[10, 177]]]));
+  const res = fn(a, b);
 
-function camelize(string) {
-  var splitedStr = string.split('-');
+  return res;
+}
 
-  for (var i = 1; i < splitedStr.length; i++) {
-    splitedStr[i] = splitedStr[i][0].toUpperCase() + splitedStr[i].slice(1);
-  }
+const result = calculate(3, 4, sum);
 
-  string = splitedStr.join('');
-
-  return string;
-};
-
-// function camelize(str) {
-//   var arr = str.split('-');
-//   for (var i = 1; i < arr.length; i++) {
-//     arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
-//   }
-//   str = arr.join('');
-//   return str;
-// }
-
-// console.log(camelize("background-color"));
-// console.log(camelize("list-style-image"));
-// console.log(camelize("-webkit-transition"));
-
-console.log(camelize("background-color"));
-console.log(camelize("list-style-image"));
-console.log(camelize("-webkit-transition"));
+console.log(result);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
