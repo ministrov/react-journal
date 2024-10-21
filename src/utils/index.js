@@ -463,3 +463,5 @@ const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) 
 // const links = [...document.querySelectorAll('a')];
 
 // Spread operator with DOM nodes;
+
+const observer = new IntersectionObserver();
