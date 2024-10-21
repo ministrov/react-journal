@@ -324,17 +324,17 @@ const isPalindromeArrow = (str) => str === str.split('').reverse().join('');
 
 // console.log(flatArray([1, 2, 3, 4, [5, 6, 7, 8], [[10, 177]]]));
 
-function camelize(string) {
-  var splitedStr = string.split('-');
+// function camelize(string) {
+//   var splitedStr = string.split('-');
 
-  for (var i = 1; i < splitedStr.length; i++) {
-    splitedStr[i] = splitedStr[i][0].toUpperCase() + splitedStr[i].slice(1);
-  }
+//   for (var i = 1; i < splitedStr.length; i++) {
+//     splitedStr[i] = splitedStr[i][0].toUpperCase() + splitedStr[i].slice(1);
+//   }
 
-  string = splitedStr.join('');
+//   string = splitedStr.join('');
 
-  return string;
-};
+//   return string;
+// };
 
 // function camelize(str) {
 //   var arr = str.split('-');
@@ -349,17 +349,17 @@ function camelize(string) {
 // console.log(camelize("list-style-image"));
 // console.log(camelize("-webkit-transition"));
 
-console.log(camelize("background-color"));
-console.log(camelize("list-style-image"));
-console.log(camelize("-webkit-transition"));
+// console.log(camelize("background-color"));
+// console.log(camelize("list-style-image"));
+// console.log(camelize("-webkit-transition"));
 
-function returnValue(a) {
-  return a;
-}
+// function returnValue(a) {
+//   return a;
+// }
 
-const b = returnValue(134);
+// const b = returnValue(134);
 
-console.log(b);
+// console.log(b);
 
 
 // High order function
@@ -383,3 +383,16 @@ console.log(b);
 // const result = calculate(3, 4, sum);
 
 // console.log(result);
+
+function myFilter(array, callback) {
+  const filteredArray = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i, array)) {
+      filtereArray.push(array[i]);
+    }
+  }
+
+  return filteredArray;
+};
+
