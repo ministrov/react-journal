@@ -426,3 +426,17 @@ const isPalindromeArrow = (str) => str === str.split('').reverse().join('');
 //   return result;
 // }
 
+
+// Function generators
+// function* hello_and_bye() {
+//   yield 'Hello';
+//   yield 'Goodbye';
+// }
+
+// const say = hello_and_bye();
+
+// console.log(say.next().value);
+// // 'Hello'
+// console.log(say.next().value);
+// // 'Goodbay'
+// console.log(say.next().value);
