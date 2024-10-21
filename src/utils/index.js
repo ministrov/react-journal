@@ -384,15 +384,45 @@ const isPalindromeArrow = (str) => str === str.split('').reverse().join('');
 
 // console.log(result);
 
-function myFilter(array, callback) {
-  const filteredArray = [];
+// Filter array native realisation of Array.map()
 
-  for (let i = 0; i < array.length; i++) {
-    if (callback(array[i], i, array)) {
-      filtereArray.push(array[i]);
-    }
-  }
+// function myFilter(array, callback) {
+//   const filteredArray = [];
 
-  return filteredArray;
-};
+//   for (let i = 0; i < array.length; i++) {
+//     if (callback(array[i], i, array)) {
+//       filteredArray.push(array[i]);
+//     }
+//   }
+
+//   return filteredArray;
+// };
+
+// function myOwnFilter(array, cb) {
+//   const filteredArray = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     if (cb(array[i], i, array)) {
+//       filteredArray.push(cb(array[i], i, array));
+//     }
+//   }
+
+//   return filteredArray;
+// };
+
+
+/// Function checks if two strings are anagram or not
+
+// function checkAnagram(str1, str2) {
+//   if (str1.length !== str2.length) {
+//     return false;
+//   }
+
+//   let string1 = str1.split('').sort().join('');
+//   let string2 = str2.split('').sort().join('');
+
+//   let result = (string1 === string2);
+
+//   return result;
+// }
 
