@@ -122,6 +122,8 @@ import { splitVendorChunk } from "vite";
 //   return false;
 // }
 
+const isPalindromeArrow = (str) => str === str.split('').reverse().join('');
+
 // export function isPalindromeAnotherWay(string) {
 //   let reversedString = '';
 
@@ -358,3 +360,26 @@ function returnValue(a) {
 const b = returnValue(134);
 
 console.log(b);
+
+
+// High order function
+// function sum(a, b) {
+//   return a + b;
+// }
+
+// function substract(a, b) {
+//   return a - b;
+// }
+
+// function calculate(a, b, fn) {
+//   console.log(typeof fn);
+//   console.log(fn.name);
+
+//   const res = fn(a, b);
+
+//   return res;
+// }
+
+// const result = calculate(3, 4, sum);
+
+// console.log(result);
