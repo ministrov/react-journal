@@ -442,17 +442,20 @@ const isPalindromeArrow = (str) => str === str.split('').reverse().join('');
 // console.log(say.next().value);
 
 // A native realisation of the Array.map()
+// function mapNative(arr, mapCallback) {
+//   if (!Array.isArray(arr) || !arr.length || typeof mapCallback !== 'function') {
+//     return [];
+//   } else {
+//     let result = [];
 
-function mapNative(arr, mapCallback) {
-  if (!Array.isArray(arr) || !arr.length || typeof mapCallback !== 'function') {
-    return [];
-  } else {
-    let result = [];
+//     for (let i = 0; i < arr.length; i++) {
+//       result.push(mapCallback(arr[i], i, arr));
+//     }
 
-    for (let i = 0; i < arr.length; i++) {
-      result.push(mapCallback(arr[i], i, arr));
-    }
+//     return result;
+//   }
+// };
 
-    return result;
-  }
-};
+
+// A random integer in range  between 1 and 10
+const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;

@@ -3,25 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 
-// function mapNative(arr, mapCallback) {
-//   if (!Array.isArray(arr) || !arr.length || typeof mapCallback !== 'function') {
-//     return [];
-//   } else {
-//     let result = [];
+const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-//     for (let i = 0; i < arr.length; i++) {
-//       result.push(mapCallback(arr[i], i, arr));
-//     }
-
-//     return result;
-//   }
-// };
-
-// const numbers = [2, 4, 5, 6, 7];
-
-// const multiplyNums = mapNative(numbers, num => num * 2);
-
-// console.log(multiplyNums);
+console.log(randomInRange(2, 5));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
