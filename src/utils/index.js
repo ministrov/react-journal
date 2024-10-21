@@ -459,3 +459,7 @@ const isPalindromeArrow = (str) => str === str.split('').reverse().join('');
 
 // A random integer in range  between 1 and 10
 const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+// const links = [...document.querySelectorAll('a')];
+
+// Spread operator with DOM nodes;
