@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocalStorage } from './hooks/use-localstorage.hook.js';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton.jsx';
 import Header from './components/Header/Header.jsx';
@@ -48,6 +48,16 @@ function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
   const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    window.addEventListener('keydown', (event) => {
+      console.log(`Вы нажали на кнопку: ${event.key}`);
+    });
+
+    // return () => {
+    //   removeEventListener('keydown', window);
+    // }
+  }, []);
 
   const addItem = item => {
     if (!item.id) {

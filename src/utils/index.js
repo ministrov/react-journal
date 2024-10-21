@@ -464,4 +464,66 @@ const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) 
 
 // Spread operator with DOM nodes;
 
-const observer = new IntersectionObserver();
+
+// IntersectionObserver is the object to trace an element that we need to trace
+// const lazyImages = document.querySelectorAll('.lazy-image');
+
+// const callback = (entries, observer) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       console.log('Пользователь почти докрутил до картинки!')
+
+//       entry.target.src = entry.target.dataset.src
+//       observer.unobserve(entry.target)
+//     }
+//   })
+// }
+
+// const options = {
+//   // root: по умолчанию window,
+//   // но можно задать любой элемент-контейнер
+//   rootMargin: '0px 0px 75px 0px',
+//   threshold: 0,
+// }
+
+
+// const observer = new IntersectionObserver(callback, options);
+
+// console.log(observer);
+// const observer = new IntersectionObserver();
+
+
+// Bubbling of the Event
+// Если кликнуть по блокам на демо, то можно увидеть, как событие всплывает вверх к родителям:
+// let active
+// let counter = 0
+
+// // Обрабатываем событие click на всех <div>
+// let divs = Array.from(document.querySelectorAll('div')).reverse()
+// for (let i = 0; i < divs.length; ++i) {
+//   const isLast = (i + 1 === divs.length)
+//   divs[i].addEventListener('click', clickHandlerGenerator(isLast))
+// }
+
+// function clickHandlerGenerator(isLast = false) {
+//   return function () {
+//     let me = this
+//     setTimeout(function () {
+//       if (active) {
+//         active.classList.remove('active')
+//       }
+//       me.classList.add('active')
+
+//       active = me
+
+//       if (isLast) {
+//         setTimeout(function () {
+//           active.classList.remove('active')
+//           active = undefined
+//           counter = 0
+//         }, 300)
+//       }
+//     }, counter * 300)
+//     ++counter
+//   }
+// }
