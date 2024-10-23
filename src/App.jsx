@@ -10,6 +10,8 @@ import LeftPanel from './layouts/LeftPanel/LeftPanel.jsx';
 import { UserContexProvider } from './context/user.context.jsx';
 import { ThemeContext } from './context/theme.context.js';
 import './App.css';
+import Modal from './components/Modal/Modal.jsx';
+import Button from './components/Button/Button.jsx';
 
 function mapItems(items) {
   if (!items) {
@@ -26,35 +28,42 @@ function App() {
   const [items, setItems] = useLocalStorage('data');
   const [selectedItem, setSelectedItem] = useState({});
   const [theme, setTheme] = useState('dark');
+  const [isOpen, setIsOpen] = useState(false);
 
   // To define a geolocation position of the user
 
-  // useEffect(() => {
-  //   window.addEventListener('DOMContentLoaded', (e) => {
-  //     if (e) {
-  //       const getCurrentPosition = () => {
-  //         // navigator.geolocation.getCurrentPosition(
-  //         //   position => console.log(position),
-  //         //   error => console.log(error)
-  //         // );
-  //         return new Promise((resolve, reject) => {
-  //           navigator.geolocation.getCurrentPosition(resolve, reject);
-  //         });
-  //       };
+  useEffect(() => {
+    // window.addEventListener('DOMContentLoaded', () => {
+    //   // if (e) {
+    //   //   const getCurrentPosition = () => {
+    //   //     // navigator.geolocation.getCurrentPosition(
+    //   //     //   position => console.log(position),
+    //   //     //   error => console.log(error)
+    //   //     // );
+    //   //     return new Promise((resolve, reject) => {
+    //   //       navigator.geolocation.getCurrentPosition(resolve, reject);
+    //   //     });
+    //   //   };
 
-  //       async function getUserLocation() {
-  //         try {
-  //           const location = getCurrentPosition();
-  //           console.log(location);
-  //         } catch (error) {
-  //           console.error(error);
-  //         }
-  //       }
+    //   //   async function getUserLocation() {
+    //   //     try {
+    //   //       const location = getCurrentPosition();
+    //   //       console.log(location);
+    //   //     } catch (error) {
+    //   //       console.error(error);
+    //   //     }
+    //   //   }
 
-  //       console.log(getUserLocation());
-  //     }
-  //   });
-  // }, []);
+    //   //   console.log(getUserLocation());
+    //   // }
+    // });
+
+    setIsOpen(true);
+    // if (document.readyState) {
+
+    // }
+    console.log('render');
+  }, []);
 
   const addItem = item => {
     if (!item.id) {
@@ -98,6 +107,15 @@ function App() {
               <JournalForm onDelete={deleteItem} onSubmit={addItem} data={selectedItem} />
             </Body>
           </div>
+
+          <Modal open={isOpen}>
+            <p>Are you from Moskow?</p>
+
+            <div className='modal-btn-block'>
+              <Button onClick={() => setIsOpen(false)}>Yes</Button>
+              <Button onClick={() => console.log('clicked NO!')}>No</Button>
+            </div>
+          </Modal>
         </div>
       </UserContexProvider>
     </ThemeContext.Provider>

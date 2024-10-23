@@ -5,12 +5,18 @@ body {
 }
 
 .app {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .app__content {
   display: flex;
+}
+
+.modal-btn-block {
+  display: flex;
+  gap: 15px;
 }
 
 @media screen and (max-width: 1024px) {
