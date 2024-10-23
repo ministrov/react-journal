@@ -3,11 +3,13 @@
 	min-width: 235px;
 	padding: 10px;
 	font-family: 'Source Sans 3', sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 600;
-	line-height: normal;
+	line-height: 26px;
 	color: #ffffff;
-	background: none;
-	border: 1px solid #323232;
+	background-color: #1E1E1E;
+	/* border: 1px solid #323232; */
+	border: none;
+	outline: none;
 }

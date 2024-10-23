@@ -2,7 +2,7 @@
     display: flex;
     gap: 15px;
     padding: 10px;
-    background-color: turquoise;
+    background-color: #1E1E1E;
 }
 
 .city-picker-label {
@@ -12,4 +12,23 @@
     font-size: 18px;
     line-height: 26px;
     color: aliceblue;
+}
+
+.city-picker-select {
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 26px;
+    color: aliceblue;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.city-picker-select:active,
+.city-picker-select:focus {
+    border-color: blueviolet;
+}
+
+.city-picker-option {
+    color: #1E1E1E;
 }

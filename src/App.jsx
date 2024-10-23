@@ -11,28 +11,6 @@ import { UserContexProvider } from './context/user.context.jsx';
 import { ThemeContext } from './context/theme.context.js';
 import './App.css';
 
-// To define a geolocation position of the user
-const getCurrentPosition = () => {
-  // navigator.geolocation.getCurrentPosition(
-  //   position => console.log(position),
-  //   error => console.log(error)
-  // );
-  return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
-};
-
-async function getUserLocation() {
-  try {
-    const location = getCurrentPosition();
-    console.log(location);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-console.log(getUserLocation());
-
 function mapItems(items) {
   if (!items) {
     return [];
@@ -49,14 +27,33 @@ function App() {
   const [selectedItem, setSelectedItem] = useState({});
   const [theme, setTheme] = useState('dark');
 
-  // useEffect(() => {
-  //   window.addEventListener('keydown', (event) => {
-  //     console.log(`Вы нажали на кнопку: ${event.key}`);
-  //   });
+  // To define a geolocation position of the user
 
-  //   // return () => {
-  //   //   removeEventListener('keydown', window);
-  //   // }
+  // useEffect(() => {
+  //   window.addEventListener('DOMContentLoaded', (e) => {
+  //     if (e) {
+  //       const getCurrentPosition = () => {
+  //         // navigator.geolocation.getCurrentPosition(
+  //         //   position => console.log(position),
+  //         //   error => console.log(error)
+  //         // );
+  //         return new Promise((resolve, reject) => {
+  //           navigator.geolocation.getCurrentPosition(resolve, reject);
+  //         });
+  //       };
+
+  //       async function getUserLocation() {
+  //         try {
+  //           const location = getCurrentPosition();
+  //           console.log(location);
+  //         } catch (error) {
+  //           console.error(error);
+  //         }
+  //       }
+
+  //       console.log(getUserLocation());
+  //     }
+  //   });
   // }, []);
 
   const addItem = item => {
