@@ -1,4 +1,5 @@
 import { useContext, useMemo } from 'react';
+import nextId from 'react-id-generator';
 import CardButton from '../CardButton/CardButton';
 import JournalItem from '../JournalItem/JournalItem';
 import { UserContext } from '../../context/user.context';
@@ -26,8 +27,8 @@ function JournalList({ items, setItem }) {
 
   return (
     <ul className={styles['journal-list']}>
-      {filteredItems.map((item, index) => (
-        <CardButton key={index + 1} onClick={() => setItem(item)}>
+      {filteredItems.map((item) => (
+        <CardButton key={nextId()} onClick={() => setItem(item)}>
           <JournalItem title={item.title} post={item.post} date={item.date} />
         </CardButton>
       ))}

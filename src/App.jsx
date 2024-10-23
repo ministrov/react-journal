@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocalStorage } from './hooks/use-localstorage.hook.js';
+import nextId from 'react-id-generator';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton.jsx';
 import Header from './components/Header/Header.jsx';
 import JournalList from './components/JournalList/JournalList.jsx';
@@ -9,7 +10,6 @@ import LeftPanel from './layouts/LeftPanel/LeftPanel.jsx';
 import { UserContexProvider } from './context/user.context.jsx';
 import { ThemeContext } from './context/theme.context.js';
 import './App.css';
-// import Checkbox from './components/Checkbox/Checkbox.jsx';
 
 // To define a geolocation position of the user
 const getCurrentPosition = () => {
@@ -49,24 +49,22 @@ function App() {
   const [selectedItem, setSelectedItem] = useState({});
   const [theme, setTheme] = useState('dark');
 
-  useEffect(() => {
-    window.addEventListener('keydown', (event) => {
-      console.log(`Вы нажали на кнопку: ${event.key}`);
-    });
+  // useEffect(() => {
+  //   window.addEventListener('keydown', (event) => {
+  //     console.log(`Вы нажали на кнопку: ${event.key}`);
+  //   });
 
-    // return () => {
-    //   removeEventListener('keydown', window);
-    // }
-  }, []);
+  //   // return () => {
+  //   //   removeEventListener('keydown', window);
+  //   // }
+  // }, []);
 
   const addItem = item => {
     if (!item.id) {
       setItems([...mapItems(items), {
         ...item,
         date: new Date(item.date),
-        // id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1
-        // Change to uniqe id ligrary
-        id: Math.floor(Math.random() * 10)
+        id: nextId()
       }]);
     } else {
       setItems([...mapItems(items).map(i => {
