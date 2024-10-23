@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
-import { useLocalStorage } from './hooks/use-localstorage.hook.js';
 import nextId from 'react-id-generator';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton.jsx';
 import Header from './components/Header/Header.jsx';
 import JournalList from './components/JournalList/JournalList.jsx';
 import JournalForm from './components/JournalForm/JournalForm.jsx';
+import Modal from './components/Modal/Modal.jsx';
+import Button from './components/Button/Button.jsx';
 import Body from './layouts/Body/Body.jsx';
 import LeftPanel from './layouts/LeftPanel/LeftPanel.jsx';
+import { useLocalStorage } from './hooks/use-localstorage.hook.js';
+import useGeolocationHook from './hooks/use-geolocation.hook.js';
 import { UserContexProvider } from './context/user.context.jsx';
 import { ThemeContext } from './context/theme.context.js';
 import './App.css';
-import Modal from './components/Modal/Modal.jsx';
-import Button from './components/Button/Button.jsx';
 
 function mapItems(items) {
   if (!items) {
@@ -29,6 +30,9 @@ function App() {
   const [selectedItem, setSelectedItem] = useState({});
   const [theme, setTheme] = useState('dark');
   const [isOpen, setIsOpen] = useState(false);
+  const location = useGeolocationHook();
+
+
 
   // To define a geolocation position of the user
 
@@ -63,6 +67,8 @@ function App() {
 
     // }
     console.log('render');
+
+    console.log(location);
   }, []);
 
   const addItem = item => {
