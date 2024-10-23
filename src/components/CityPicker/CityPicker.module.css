@@ -1,0 +1,15 @@
+.city-picker {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    background-color: turquoise;
+}
+
+.city-picker-label {
+    display: inline-block;
+    min-width: 150px;
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 26px;
+    color: aliceblue;
+}

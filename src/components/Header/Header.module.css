@@ -5,3 +5,8 @@
     margin-bottom: 60px;
     padding: 1rem;
 }
+
+.header__left-side {
+    display: flex;
+    gap: 1rem;
+}
