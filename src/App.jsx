@@ -90,17 +90,17 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <UserContexProvider>
         <div className="app" id={theme}>
-          <LeftPanel>
-            <Header />
-            <JournalAddButton />
-            <JournalList items={mapItems(items)} setItem={setSelectedItem} />
-          </LeftPanel>
+          <Header />
+          <div className="app__content">
+            <LeftPanel>
+              <JournalAddButton />
+              <JournalList items={mapItems(items)} setItem={setSelectedItem} />
+            </LeftPanel>
 
-          <Body>
-            <JournalForm onDelete={deleteItem} onSubmit={addItem} data={selectedItem} />
-          </Body>
-
-          {/* <Checkbox typeName={'shipping'} typeLabel={'Shipping for label'}/> */}
+            <Body>
+              <JournalForm onDelete={deleteItem} onSubmit={addItem} data={selectedItem} />
+            </Body>
+          </div>
         </div>
       </UserContexProvider>
     </ThemeContext.Provider>
