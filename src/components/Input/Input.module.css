@@ -1,6 +1,9 @@
 .input {
 	width: 100%;
 	min-height: inherit;
+	padding-left: 24px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	font-family: 'Source Sans 3', sans-serif;
 	font-size: 14px;
 	font-style: normal;
@@ -9,7 +12,7 @@
 	color: #ffffff;
 	border: none;
 	background: none;
-	border-bottom: 1px solid #323232;
+	border: 1px solid #323232;
 }
 
 .input-title {
@@ -23,9 +26,9 @@
 
 input[type="date"]::-webkit-calendar-picker-indicator {
 	background-color: transparent;
-  cursor: pointer;
+	cursor: pointer;
 	border: 1px solid #323232;
-  border-radius: 8px;
+	border-radius: 8px;
 	transform: scale(1.2) translateX(-13px);
 	filter: invert(0.8);
 	opacity: 0.6;
