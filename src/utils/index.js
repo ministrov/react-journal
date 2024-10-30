@@ -541,3 +541,7 @@ const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) 
 //     }
 //   }
 // };
+
+// function capitalizeFirsChar(str) {
+//   return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+// }
