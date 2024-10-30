@@ -545,3 +545,11 @@ const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) 
 // function capitalizeFirsChar(str) {
 //   return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 // }
+
+// function capitalizeFirstChar(string) {
+//   return `${string[0].toUpperCase()}${string.slice(1)}`;
+// }
+
+// function capitalizeFirsChar(string) {
+//   return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
+// }
