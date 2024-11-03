@@ -3,22 +3,17 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 
-// function returnStringAndNumber(num) {
-//   switch (num) {
-//     // case num < 25:
-//     //   return `${num} - компьютерa`;
-//     case num === 25:
-//       return `${num} - компьютеров`;
-//     case num === 41:
-//       return `${num} - компьютер`;
-//     case num === 1048:
-//       return `${num} - компьютеров`;
-//     default:
-//       return `${num} - компьютерa`;
-//   }
-// }
+function returnNumFromRange(min, max) {
+  let result = [];
 
-// console.log(returnStringAndNumber(5));
+  for (let i = min; i < max; i++) {
+    result.push(i);
+  }
+
+  return result;
+}
+
+console.log(returnNumFromRange(4, 10));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
