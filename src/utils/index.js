@@ -553,3 +553,22 @@ const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) 
 // function capitalizeFirsChar(string) {
 //   return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
 // }
+
+// Задача 1. Разработайте функцию, которая принимает целое число в качестве аргумента и возвращает строку, содержащую это число и слово "компьютер" в нужном склонении по падежам в зависимости от числа. Например, при вводе числа 25 функция должна возвращать "25 компьютеров", для числа 41 — "41 компьютер", а для числа 1048 — "1048 компьютеров".
+
+function returnStringAndNumber(num) {
+  switch (num) {
+    // case num < 25:
+    //   return `${num} - компьютерa`;
+    case num === 25:
+      return `${num} - компьютеров`;
+    case num === 41:
+      return `${num} - компьютер`;
+    case num === 1048:
+      return `${num} - компьютеров`;
+    default:
+      return `${num} - компьютерa`;
+  }
+}
+
+console.log(returnStringAndNumber(5));
