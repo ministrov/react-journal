@@ -579,12 +579,35 @@ function returnDivider(arr) {}
 
 // Задача 3. Написать функцию/метод, которая возвращает массив простых чисел в диапазоне (2 числа - минимальное и максимальное) заданных чисел.Например, на вход переданы 2 числа: от 11 до 20(диапазон считается включая граничные значения).
 
-function returnNumFromRange(min, max) {
-  let result = [];
+// function returnNumFromRange(min, max) {
+//   let result = [];
 
-  for (let i = min; i <= max; i++) {
-    result.push(i);
+//   for (let i = min; i <= max; i++) {
+//     result.push(i);
+//   }
+
+//   return result;
+// }
+
+// Задача 4. Написать метод, который в консоль выводит таблицу умножения. На вход метод получает число, до которого выводит таблицу умножения. В консоли должна появиться таблица. Например, если на вход пришло число 5, то получим:
+
+function createMultiplicationTable(value) {
+  let table = '\n';
+  let maxLength = (value * value).toString().length;
+
+  for (let i = 0; i <= value; i++) {
+    let tableString = '';
+
+    for (let j = 0; j <= value; j++) {
+      let product = i * j;
+      let padding = ' '.repeat(maxLength - product.toString().length + 1);
+      tableString += padding + (product || ' ');
+    }
+
+    table += tableString + '\n';
   }
 
-  return result;
+  console.log(table);
 }
+
+createMultiplicationTable(5);
