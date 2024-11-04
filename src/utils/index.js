@@ -575,7 +575,7 @@ const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) 
 
 //Задача 2. Написать функцию/метод, которая на вход получает массив положительных целых чисел произвольной длины.Например[42, 12, 18].На выходе возвращает массив чисел, которые являются общими делителями для всех указанных числе.В примере это будет[2, 3, 6].
 
-function returnDivider(arr) {}
+function returnDivider(arr) { }
 
 // Задача 3. Написать функцию/метод, которая возвращает массив простых чисел в диапазоне (2 числа - минимальное и максимальное) заданных чисел.Например, на вход переданы 2 числа: от 11 до 20(диапазон считается включая граничные значения).
 
@@ -591,23 +591,41 @@ function returnDivider(arr) {}
 
 // Задача 4. Написать метод, который в консоль выводит таблицу умножения. На вход метод получает число, до которого выводит таблицу умножения. В консоли должна появиться таблица. Например, если на вход пришло число 5, то получим:
 
-function createMultiplicationTable(value) {
-  let table = '\n';
-  let maxLength = (value * value).toString().length;
+// function createMultiplicationTable(value) {
+//   let table = '\n';
+//   let maxLength = (value * value).toString().length;
 
-  for (let i = 0; i <= value; i++) {
-    let tableString = '';
+//   for (let i = 0; i <= value; i++) {
+//     let tableString = '';
 
-    for (let j = 0; j <= value; j++) {
-      let product = i * j;
-      let padding = ' '.repeat(maxLength - product.toString().length + 1);
-      tableString += padding + (product || ' ');
+//     for (let j = 0; j <= value; j++) {
+//       let product = i * j;
+//       let padding = ' '.repeat(maxLength - product.toString().length + 1);
+//       tableString += padding + (product || ' ');
+//     }
+
+//     table += tableString + '\n';
+//   }
+
+//   console.log(table);
+// }
+
+// createMultiplicationTable(5);
+
+// Write a function that takes a string of braces, and determines if the order of the braces is valid. It should return true if the string is valid, and false if it's invalid.
+
+function validBraces(braces) {
+  const stack = [];
+  const pairs = { '(': ')', '{': '}', '[': ']', }
+  for (let char of braces) {
+    if (char in pairs) {
+      stack.push(char);
+    } else {
+      const top = stack.pop()
+      if (top === undefined || pairs[top] !== char) {
+        return false;
+      }
     }
-
-    table += tableString + '\n';
   }
-
-  console.log(table);
+  return stack.length === 0;
 }
-
-createMultiplicationTable(5);
