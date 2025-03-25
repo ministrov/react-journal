@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { cities } from '../../data';
 import styles from './CityPicker.module.css';
 
@@ -20,5 +20,5 @@ export default function CityPicker() {
                 ))}
             </select>
         </div>
-    )
+    );
 }
