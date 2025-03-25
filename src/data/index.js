@@ -1,28 +1,28 @@
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 
 export const cities = [
     {
         id: nextId(),
-        name: "Майкоп",
-        label: "maykop",
-        contentType: "city"
+        name: 'Майкоп',
+        label: 'maykop',
+        contentType: 'city'
     },
     {
         id: nextId(),
-        name: "Тверь",
-        label: "tver",
-        contentType: "city"
+        name: 'Тверь',
+        label: 'tver',
+        contentType: 'city'
     },
     {
         id: nextId(),
-        name: "Саранск",
-        label: "saransk",
-        contentType: "city"
+        name: 'Саранск',
+        label: 'saransk',
+        contentType: 'city'
     },
     {
         id: nextId(),
-        name: "Владимир",
-        label: "vladimir",
-        contentType: "city"
+        name: 'Владимир',
+        label: 'vladimir',
+        contentType: 'city'
     }
 ];
